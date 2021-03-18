@@ -1,0 +1,7 @@
+assignment.ajax.form:
+ path: '/ajax/myform'
+ defaults:
+   _title: 'Application form'
+   _form: '\Drupal\assignment\Form\AjaxForm'
+ requirements:
+   _permission: 'access content'
