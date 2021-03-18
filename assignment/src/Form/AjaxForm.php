@@ -13,12 +13,6 @@ class AjaxForm extends FormBase {
 
   public function buildForm(array $form, FormStateInterface $form_state) {
 
-    $form['output'] = [
-        '#type' => 'markup',
-        '#markup' => '<div id="result-output"></div>',
-    ];
-
-
     $form['number_1'] = array(
       '#type' => 'textfield',
       '#title' => t('Enter the First Number:'),
@@ -47,13 +41,18 @@ class AjaxForm extends FormBase {
       ),
     );
     
+    $form['output'] = [
+        '#type' => 'markup',
+        '#markup' => '<div id="result-output"></div>',
+    ];
+    
     return $form;
   }
 
   public function setMessage(array $form, FormStateInterface $form_state){
-    $operationselected = $form_state -> getValue('Select operation');
-    $number_1 = $form_state -> getValue('Enter the First Number:');
-    $number_2 = $form_state -> getValue('Enter the Second Number:');
+    $operationselected = $form_state -> getValue('operation');
+    $number_1 = $form_state -> getValue('number_1');
+    $number_2 = $form_state -> getValue('number_2');
 
     switch($operationselected){
         case 'Add':
